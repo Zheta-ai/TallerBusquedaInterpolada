@@ -1,13 +1,27 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    IO.println(String.format("Hello and welcome!"));
+public class Main {
+    public static void main(String[] args) {
+        Tienda miTienda = new Tienda();
 
-    for (int i = 1; i <= 5; i++) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        IO.println("i = " + i);
+        System.out.println("=== INICIANDO SISTEMA DE TIENDA EN LÍNEA ===\n");
+
+        System.out.println(">> BUSCANDO PRODUCTO POR ID (Búsqueda Interpolada):");
+        int indiceId = miTienda.buscarPorId(miTienda.getIdsProductos(), 202);
+        if (indiceId != -1) System.out.println("Producto encontrado: " + miTienda.getNombresProductos()[indiceId]);
+
+        System.out.println("\n>> BUSCANDO PRODUCTO POR NOMBRE:");
+        int indiceNombre = miTienda.buscarPorNombre(miTienda.getNombresProductos(), "Teclado");
+        if (indiceNombre != -1) System.out.println("Producto encontrado (ID: " + miTienda.getIdsProductos()[indiceNombre] + ")");
+
+        System.out.println("\n>> ACTUALIZANDO PRECIOS:");
+        miTienda.actualizarPrecio(101, 850.99);
+        miTienda.actualizarPrecio(999, 10.00);
+
+        System.out.println("\n>> REGISTRANDO VENTAS:");
+        miTienda.registrarVenta(101, 1, 5);
+        miTienda.registrarVenta(101, 2, 8);
+        miTienda.registrarVenta(202, 3, 15);
+        miTienda.registrarVenta(303, 1, 20);
+
+        miTienda.mostrarReporteVentas();
     }
 }
