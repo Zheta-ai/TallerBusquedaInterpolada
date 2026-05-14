@@ -1,3 +1,5 @@
+
+//desacoplamiento
 public interface OperacionesTienda {
     // Método para buscar por ID usando interpolación
     int buscarPorId(int[] arrayIds, int idBuscado);

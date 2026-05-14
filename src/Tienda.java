@@ -9,7 +9,7 @@ public class Tienda implements OperacionesTienda {
     private int[][] ventasMensuales = new int[3][3];
 
     // ==========================================
-    // MÉTODO 1: BÚSQUEDA INTERPOLADA (Con comentarios para la exposición)
+    // MÉTODO 1: BÚSQUEDA INTERPOLADA
     // ==========================================
     @Override
     public int buscarPorId(int[] array, int valor) {
